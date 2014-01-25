@@ -46,10 +46,11 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ActionManager.cs" />
      <Compile Include="Assets\CameraFollow.cs" />
-     <Compile Include="Assets\TimeController.cs" />
-     <Compile Include="Assets\adjustMood.cs" />
-     <Compile Include="Assets\playerController.cs" />
+     <Compile Include="Assets\Player\playerController.cs" />
+     <Compile Include="Assets\UI\TimeController.cs" />
+     <Compile Include="Assets\UI\adjustMood.cs" />
      <Compile Include="Assets\playerReflectionManager.cs" />
      <Compile Include="Assets\reflectionManager.cs" />
   </ItemGroup>
