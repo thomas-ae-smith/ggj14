@@ -1,0 +1,25 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/CameraFollow.cs">
+    <Files>
+      <File FileName="Assets/playerReflectionManager.cs" Line="12" Column="35" />
+      <File FileName="Assets/playerController.cs" Line="32" Column="44" />
+      <File FileName="Assets/reflectionManager.cs" Line="13" Column="17" />
+      <File FileName="Assets/CameraFollow.cs" Line="42" Column="1" />
+      <File FileName="Assets/TimeController.cs" Line="8" Column="67" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="CameraFollow.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
