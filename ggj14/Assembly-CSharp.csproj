@@ -47,7 +47,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\ActionManager.cs" />
+<<<<<<< local
+     <Compile Include="Assets\Audio\MusicControl.cs" />
+=======
      <Compile Include="Assets\CameraFade.cs" />
+>>>>>>> other
      <Compile Include="Assets\CameraFollow.cs" />
      <Compile Include="Assets\Player\playerController.cs" />
      <Compile Include="Assets\TaskManager.cs" />
