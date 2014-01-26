@@ -15,7 +15,7 @@ public class playerController : MonoBehaviour
 	
 	private Animator animator;
 
-	public float jumpForce = 300.0f;
+	public float jumpForce = 500.0f;
 	
 	// Use this for initialization
 	void Start()
