@@ -1,26 +1,22 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MutualActionManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/HeaderManager.cs">
     <Files>
       <File FileName="Assets/MassReflectionManager.cs" Line="15" Column="45" />
       <File FileName="Assets/playerReflectionManager.cs" Line="1" Column="1" />
       <File FileName="Assets/reflectionManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/CameraFollow.cs" Line="54" Column="20" />
-      <File FileName="Assets/ActionManager.cs" Line="25" Column="20" />
+      <File FileName="Assets/CameraFollow.cs" Line="1" Column="1" />
+      <File FileName="Assets/ActionManager.cs" Line="55" Column="8" />
       <File FileName="Assets/TaskManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Player/playerController.cs" Line="1" Column="1" />
-      <File FileName="Assets/UI/adjustMood.cs" Line="93" Column="7" />
-      <File FileName="Assets/MutualActionManager.cs" Line="26" Column="3" />
+      <File FileName="Assets/UI/adjustMood.cs" Line="1" Column="1" />
+      <File FileName="Assets/MutualActionManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/HeaderManager.cs" Line="26" Column="20" />
+      <File FileName="Assets/CameraFade.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Player" expanded="True" />
-            <Node name="UI" expanded="True" />
-            <Node name="MutualActionManager.cs" selected="True" />
-          </Node>
-        </State>
+        <State expanded="True" />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
