@@ -3,7 +3,8 @@ using System.Collections;
 
 public class adjustMood : MonoBehaviour 
 {
-	
+
+	public SoundControl SC;
 	public Camera main, reflection;
 	public GameObject particles;
 	public GUIText prompt;
@@ -65,6 +66,15 @@ public class adjustMood : MonoBehaviour
 
 	private void Adjust(bool check = true)
 	{
+		if (mood > 0.7) {
+				SC.setFuture (1);
+		} else if (mood > 0.5) {
+				SC.setFuture (2);
+		} else if (mood > 0.3) {
+				SC.setFuture (3);
+		} else {
+				SC.setFuture (4);
+		}
 		top.ResetProjectionMatrix ();
 		bottom.ResetProjectionMatrix ();
 		Rect tmp = main.rect;

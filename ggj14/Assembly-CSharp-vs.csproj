@@ -49,7 +49,6 @@
      <Compile Include="Assets\ActionManager.cs" />
      <Compile Include="Assets\Audio\MusicControl-backup.cs" />
      <Compile Include="Assets\Audio\SoundControl.cs" />
-     <Compile Include="Assets\Audio\MusicControl.cs" />
      <Compile Include="Assets\CameraFade.cs" />
      <Compile Include="Assets\CameraFollow.cs" />
      <Compile Include="Assets\HeaderManager.cs" />

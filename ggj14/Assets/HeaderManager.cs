@@ -21,7 +21,7 @@ public class HeaderManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (tasks >= 1 && !complete)
+		if (tasks >= 7 && !complete)
 		{
 			complete = true;
 			Complete();

@@ -59,6 +59,20 @@ public class SoundControl : MonoBehaviour {
 	
 	}
 
+	public void setFuture(int i) {
+		if (i == 1)
+			Future = HappySource;
+	
+	if (i == 2)
+		Future = OkaySource;
+	
+	if (i == 3)
+		Future = SadSource;
+	
+	if (i == 4)
+		Future = DepressedSource;
+	}
+
 	IEnumerator Crossfade (AudioSource fadeout, AudioSource fadein, float timedelay)
 	{
 		fadeout.volume -= 0.001f ;
