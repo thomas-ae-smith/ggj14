@@ -5,6 +5,8 @@ public class adjustMood : MonoBehaviour
 {
 	
 	public Camera main, reflection;
+	public GameObject particles;
+	public GUIText prompt;
 	private Camera top, bottom;
 	bool positive = true;
 	private float mood = 0.5f;
@@ -16,9 +18,12 @@ public class adjustMood : MonoBehaviour
 	{
 		top = main;
 		bottom = reflection;
-		main.aspect = 32/9;
-		reflection.aspect = 32/9;
+		main.aspect = 1 / mood * 16 / 9;
+		reflection.aspect = 1 / (1-mood) * 16 / 9;
 		GL.SetRevertBackfacing (!positive);
+		Vector3 pos = particles.transform.position;
+		pos.y = 2.5f;
+		particles.transform.position = pos;
 
 	}
 	
@@ -32,6 +37,10 @@ public class adjustMood : MonoBehaviour
 		Rect tmp = top.rect;
 		tmp.y = bottom.rect.y;
 		top.rect = tmp;
+		Vector3 pos = particles.transform.position;
+		pos.y = tmp.y;
+		particles.transform.position = pos;
+
 		tmp = bottom.rect;
 		tmp.y = 0;
 		bottom.rect = tmp;
@@ -64,9 +73,11 @@ public class adjustMood : MonoBehaviour
 		main.rect = tmp;
 		main.orthographicSize = 2*mood;
 //		main.orthographicSize += 0.02f;
-		Vector3 tmp2 = main.transform.position;
-		tmp2.y = 2*mood;
-		main.transform.position = tmp2;
+
+//		Vector3 tmp2 = main.transform.position;
+//		tmp2.y = 2*mood;
+//		main.transform.position = tmp2;
+
 		main.aspect = 1 / mood * 16 / 9;
 		//		main.aspect = 1f/tmp.y;
 		//		tmp = reflection.rect;
@@ -78,14 +89,21 @@ public class adjustMood : MonoBehaviour
 		reflection.rect = tmp;
 		reflection.orthographicSize = 2*(1-mood);
 //		reflection.orthographicSize -= 0.02f;
-		tmp2 = reflection.transform.position;
-		tmp2.y = -2*(1-mood);
-		reflection.transform.position = tmp2;
+
+//		tmp2 = reflection.transform.position;
+//		tmp2.y = -2*(1-mood);
+//		reflection.transform.position = tmp2;
+
 		reflection.aspect = 1 / (1-mood) * 16 / 9;
 
 		tmp = top.rect;
 		tmp.y = bottom.rect.height;
 		top.rect = tmp;
+
+		Vector3 pos = particles.transform.position;
+		pos.y = 5*tmp.y;
+		particles.transform.position = pos;
+
 
 		if (mood > 0.6 && !positive && check)
 		{
@@ -174,7 +192,7 @@ public class adjustMood : MonoBehaviour
 		}
 		if (Input.GetKeyDown(KeyCode.H))
 		{
-			StartAdjustment(0.4f, 2.0f);
+			StartAdjustment(0.15f, 2.0f);
 		}
 	}
 
@@ -189,4 +207,14 @@ public class adjustMood : MonoBehaviour
 		deltaMood = (targetMood - mood) / time;	
 	}
 
+	public void SetPrompt(string promptText)
+	{
+		prompt.text = promptText;
+		prompt.enabled = true;
+	}
+
+	public void HidePrompt()
+	{
+		prompt.enabled = false;
+	}
 }

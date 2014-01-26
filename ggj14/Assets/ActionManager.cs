@@ -9,7 +9,6 @@ public class ActionManager : MonoBehaviour {
 	public Sprite evil;
 	public float cost, gain;
 	private GameObject image;
-	private GameObject prompt;
 	private bool possible = false;
 	private bool completed = false;
 
@@ -21,21 +20,16 @@ public class ActionManager : MonoBehaviour {
 		Vector3 pos = this.transform.position;
 		pos.y = -pos.y;
 		image.transform.position = pos;
-		Vector3 theScale = image.transform.localScale;
+		Vector3 theScale = transform.localScale;
 		theScale.y *= -1;
+		theScale.x *= -1;
 		image.transform.localScale = theScale;
+		Quaternion rot = transform.rotation;
+		image.transform.rotation = rot;
 		//		image.transform.position.y = -image.transform.position.y;
 		image.AddComponent<SpriteRenderer> ();
 		image.GetComponent<SpriteRenderer> ().sprite = evil;
 		this.gameObject.AddComponent<BoxCollider2D> ().isTrigger = true;
-
-		prompt = new GameObject ("Prompt");
-
-//		prompt.transform.parent = this.transform;
-	
-		prompt.AddComponent<GUIText> ();
-		prompt.GetComponent<GUIText>().text = promptText;
-//		prompt.enabled = false;
 
 	}
 	
@@ -50,6 +44,7 @@ public class ActionManager : MonoBehaviour {
 			CameraFade.StartAlphaFade( Color.black, false, 2f, 0f, () => 
 			{ 
 				TimeController.addMinutes(45); 
+				Mood.HidePrompt();
 				image.GetComponent<SpriteRenderer>().sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
 				Mood.StartAdjustment(cost + gain, 2f);
 //				Mood.Increase(cost+gain);
@@ -62,11 +57,15 @@ public class ActionManager : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D() {
-		Debug.Log ("Shower?");
+		if (!completed) {
+			Mood.SetPrompt (promptText);
+		}
+//		Debug.Log ("Shower?");
 		possible = true;
 	}
 
 	void OnTriggerExit2D() {
+		Mood.HidePrompt ();
 		possible = false;
 	}
 	
