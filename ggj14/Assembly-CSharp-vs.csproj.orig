@@ -50,6 +50,7 @@
      <Compile Include="Assets\Audio\MusicControl-backup.cs" />
      <Compile Include="Assets\Audio\SoundControl.cs" />
      <Compile Include="Assets\Audio\MusicControl.cs" />
+>>>>>>> other
      <Compile Include="Assets\CameraFade.cs" />
      <Compile Include="Assets\CameraFollow.cs" />
      <Compile Include="Assets\MassReflectionManager.cs" />
