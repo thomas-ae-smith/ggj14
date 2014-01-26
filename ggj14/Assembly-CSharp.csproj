@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\ActionManager.cs" />
+     <Compile Include="Assets\CameraFade.cs" />
      <Compile Include="Assets\CameraFollow.cs" />
      <Compile Include="Assets\Player\playerController.cs" />
+     <Compile Include="Assets\TaskManager.cs" />
      <Compile Include="Assets\UI\TimeController.cs" />
      <Compile Include="Assets\UI\adjustMood.cs" />
      <Compile Include="Assets\playerReflectionManager.cs" />

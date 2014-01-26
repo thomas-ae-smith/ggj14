@@ -8,6 +8,8 @@ public class adjustMood : MonoBehaviour
 	private Camera top, bottom;
 	bool positive = true;
 	private float mood = 0.5f;
+	private float targetMood = 0.5f;
+	private float deltaMood = 0f;
 	
 	
 	void Awake ()
@@ -52,7 +54,7 @@ public class adjustMood : MonoBehaviour
 	
 
 
-	private void Adjust()
+	private void Adjust(bool check = false)
 	{
 		top.ResetProjectionMatrix ();
 		bottom.ResetProjectionMatrix ();
@@ -85,11 +87,11 @@ public class adjustMood : MonoBehaviour
 		tmp.y = bottom.rect.height;
 		top.rect = tmp;
 
-		if (mood > 0.6 && !positive)
+		if (mood > 0.6 && !positive && check)
 		{
 			Flip ();
 		}
-		if (mood < 0.4 && positive)
+		if (mood < 0.4 && positive && check)
 		{
 			Flip ();
 		}
@@ -101,15 +103,15 @@ public class adjustMood : MonoBehaviour
 		}
 	}
 
-	private void Increase()
+	public void Increase(float value)
 	{
-		mood = Mathf.Min(0.9f, mood + 0.01f);
-		Adjust();
+		mood = Mathf.Min(0.9f, mood + value);
+		Adjust(true);
 	}
 
-	private void Decrease()
+	public void Decrease(float value)
 	{
-		mood = Mathf.Max(0.1f, mood - 0.01f);
+		mood = Mathf.Max(0.1f, mood - value);
 		Adjust();
 	}
 	
@@ -152,17 +154,39 @@ public class adjustMood : MonoBehaviour
 
 	void Update ()
 	{
-		
-		float move = Input.GetAxis("Vertical");
-		
-		if (move > 0)
-		{
-			Increase();
+		// If the current color of the screen is not equal to the desired color: keep fading!
+		if (mood != targetMood)
+		{			
+			// If the difference between the current alpha and the desired alpha is smaller than delta-alpha * deltaTime, then we're pretty much done fading:
+			if (Mathf.Abs(mood - targetMood) < Mathf.Abs(deltaMood) * Time.deltaTime)
+			{
+				mood = targetMood;
+				Adjust();
+				deltaMood = 0.0f;
+			
+			}
+			else
+			{
+				// Fade!
+				mood = mood + deltaMood * Time.deltaTime;
+				Adjust();
+			}
 		}
-		else if (move < 0)
+		if (Input.GetKeyDown(KeyCode.H))
 		{
-			Decrease();
+			StartAdjustment(0.4f, 2.0f);
 		}
+	}
+
+	public void StartAdjustment(float diff, float time)
+	{
+		if (mood != targetMood){
+			mood = targetMood;
+		}
+		targetMood = Mathf.Max (0.1f, Mathf.Min (0.9f, mood + diff));
+		
+		
+		deltaMood = (targetMood - mood) / time;	
 	}
 
 }
