@@ -55,6 +55,7 @@
 >>>>>>> other
      <Compile Include="Assets\CameraFade.cs" />
      <Compile Include="Assets\CameraFollow.cs" />
+     <Compile Include="Assets\HeaderManager.cs" />
      <Compile Include="Assets\MassReflectionManager.cs" />
      <Compile Include="Assets\MutualActionManager.cs" />
      <Compile Include="Assets\Player\playerController.cs" />

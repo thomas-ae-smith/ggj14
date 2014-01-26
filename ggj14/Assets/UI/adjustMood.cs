@@ -11,7 +11,7 @@ public class adjustMood : MonoBehaviour
 	bool positive = true;
 	private float mood = 0.5f;
 	private float targetMood = 0.5f;
-	private float deltaMood = 0f;
+	private float deltaMood = -0.001f;
 	
 	
 	void Awake ()
@@ -63,7 +63,7 @@ public class adjustMood : MonoBehaviour
 	
 
 
-	private void Adjust(bool check = false)
+	private void Adjust(bool check = true)
 	{
 		top.ResetProjectionMatrix ();
 		bottom.ResetProjectionMatrix ();
@@ -123,13 +123,13 @@ public class adjustMood : MonoBehaviour
 
 	public void Increase(float value)
 	{
-		mood = Mathf.Min(0.9f, mood + value);
+		mood = Mathf.Min(0.85f, mood + value);
 		Adjust(true);
 	}
 
 	public void Decrease(float value)
 	{
-		mood = Mathf.Max(0.1f, mood - value);
+		mood = Mathf.Max(0.15f, mood - value);
 		Adjust();
 	}
 	
@@ -178,9 +178,9 @@ public class adjustMood : MonoBehaviour
 			// If the difference between the current alpha and the desired alpha is smaller than delta-alpha * deltaTime, then we're pretty much done fading:
 			if (Mathf.Abs(mood - targetMood) < Mathf.Abs(deltaMood) * Time.deltaTime)
 			{
-				mood = targetMood;
+				targetMood = mood = (targetMood + mood)/2;
 				Adjust();
-				deltaMood = 0.0f;
+				deltaMood = -0.001f;
 			
 			}
 			else
@@ -189,6 +189,9 @@ public class adjustMood : MonoBehaviour
 				mood = mood + deltaMood * Time.deltaTime;
 				Adjust();
 			}
+		} else {
+			mood -= 0.001f;
+//			Debug.Log(mood);
 		}
 		if (Input.GetKeyDown(KeyCode.H))
 		{
@@ -201,7 +204,7 @@ public class adjustMood : MonoBehaviour
 		if (mood != targetMood){
 			mood = targetMood;
 		}
-		targetMood = Mathf.Max (0.1f, Mathf.Min (0.9f, mood + diff));
+		targetMood = Mathf.Max (0.15f, Mathf.Min (0.85f, mood + diff));
 		
 		
 		deltaMood = (targetMood - mood) / time;	

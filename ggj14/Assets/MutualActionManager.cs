@@ -21,9 +21,7 @@ public class MutualActionManager : MonoBehaviour {
 		Vector3 pos = this.transform.position;
 		pos.y = -pos.y;
 		image.transform.position = pos;
-		Vector3 theScale = transform.localScale;
-		theScale.y *= -1;
-		theScale.x *= -1;
+		Vector3 theScale = new Vector3(1, -1, 1);
 		image.transform.localScale = theScale;
 		//		image.transform.position.y = -image.transform.position.y;
 		image.AddComponent<SpriteRenderer> ();

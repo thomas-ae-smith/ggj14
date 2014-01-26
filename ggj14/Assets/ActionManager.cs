@@ -22,7 +22,7 @@ public class ActionManager : MonoBehaviour {
 		image.transform.position = pos;
 		Vector3 theScale = transform.localScale;
 		theScale.y *= -1;
-		theScale.x *= -1;
+//		theScale.x *= -1;
 		image.transform.localScale = theScale;
 		Quaternion rot = transform.rotation;
 		image.transform.rotation = rot;

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class TaskManager : MonoBehaviour {
 
+	public HeaderManager header;
 	GameObject strike;
 	bool complete = false;
 
@@ -27,5 +28,6 @@ public class TaskManager : MonoBehaviour {
 		Destroy (strike.GetComponent<TaskManager> ());
 		strike.GetComponent<GUIText> ().text = "  " + new string('-', (int)(gameObject.GetComponent<GUIText> ().text.Length));;
 		strike.transform.parent = this.transform;
+		header.finishTask ();
 	}
 }
